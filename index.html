@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voiceflow Chatbot</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;,">
     <style>
         body {
             margin: 0;
@@ -46,6 +47,13 @@
                     versionID: 'production',
                     autoOpen: true
                 });
+                
+                // Add a small delay before trying to open the chat
+                setTimeout(() => {
+                    if (window.voiceflow && window.voiceflow.chat) {
+                        window.voiceflow.chat.open();
+                    }
+                }, 1000);
             }
             v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
         })(document, 'script');
